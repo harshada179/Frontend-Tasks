@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud operation</title>
+    <link rel="stylesheet" href="crud.css">
+</head>
+
+<body onload="readAll()">
+    <div class="theme-toggle">
+        <label>
+            <input type="checkbox" id="themeSwitcher" />
+            Toggle Dark Mode
+        </label>
+    </div>
+
+    <div class="container">
+        <div class="form_container">
+            <!-- Create Form -->
+            <form class="create_form">
+                <input type="text" class="task" placeholder="Enter task" required />
+                <input type="date" class="date" required />
+                <select class="status">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <button type="button" onclick="add()">Create</button>
+            </form>
+
+            <!-- Update Form -->
+            <form class="update_form">
+                <input type="hidden" class="id" />
+                <input type="text" class="utask" />
+                <input type="date" class="udate" />
+                <select class="ustatus">
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <button type="button" onclick="update()">Update</button>
+            </form>
+
+            <div class="add_div">
+                <button onclick="create()">Add+</button>
+            </div>
+            <div class="filter_div">
+                <label for="statusFilter">Filter by Status:</label>
+                <select id="statusFilter" onchange="readAll()">
+                    <option value="All">All</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Completed">Completed</option>
+                </select>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody class="data_table">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="crud.js"></script>
+</body>
+
+</html>
